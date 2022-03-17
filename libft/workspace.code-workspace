@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "../so_long"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"mlx_opengl.h": "c"
+		}
+	}
+}
