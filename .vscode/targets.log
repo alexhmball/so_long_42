@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Thu Mar 17 20:46:29 2022
+# Make data base, printed on Mon Mar 21 16:54:04 2022
 
 # Variables
 
@@ -41,7 +41,7 @@ VSCODE_VERBOSE_LOGGING = true
 # makefile (from `Makefile', line 21)
 OBJS = ${SRCS:c=o}
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000cc3800330t/T/vscode-ipc-c503f53d-fdcb-4394-8bcb-538f2ae706e1.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000cc3800330t/T/vscode-ipc-5e453c1b-303d-4b1d-ab4f-f0d89d7c1278.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -55,7 +55,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.tObZXZ3ofH/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.mRtvdebbxk/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -92,7 +92,7 @@ MAKECMDGOALS := all
 SRCS = srcs/make_map.c srcs/check_map_edge.c srcs/check_map.c srcs/read_map.c srcs/map_init.c srcs/my_strjoin.c srcs/so_long_utils.c srcs/get_next_line.c srcs/get_next_line_utils.c srcs/delete.c
 # environment
 SHLVL = 1
-# makefile (from `Makefile', line 34)
+# makefile (from `Makefile', line 37)
 CC = gcc
 # makefile (from `Makefile', line 15)
 UNAME = ${shell uname}
@@ -112,9 +112,9 @@ LESS = -R
 LINKS = -framework OpenGL -framework Appkit -L /Users/aball/Desktop/minilibx_opengl -lmlx
 # default
 MAKE_COMMAND := /Library/Developer/CommandLineTools/usr/bin/make
-# makefile (from `Makefile', line 36)
+# makefile (from `Makefile', line 39)
 INC = srcs/so_long.h
-# makefile (from `Makefile', line 27)
+# makefile (from `Makefile', line 28)
 LIBDIR = ../minilibx_opengl
 # default
 .VARIABLES := 
@@ -131,7 +131,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.microsoft.VSCode.1496
+XPC_SERVICE_NAME = com.microsoft.VSCode.2600
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -157,7 +157,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 99028
+VSCODE_PID = 83899
 # variable set hash-table stats:
 # Load=73/1024=7%, Rehash=0, Collisions=6/110=5%
 
@@ -167,15 +167,15 @@ VSCODE_PID = 99028
 
 # Directories
 
-# . (device 16777225, inode 1302620): 9 files, no impossibilities.
-# srcs (device 16777225, inode 1305173): 26 files, no impossibilities so far.
+# . (device 16777225, inode 1302620): 8 files, no impossibilities.
+# srcs (device 16777225, inode 1305173): 18 files, no impossibilities so far.
 
-# 35 files, no impossibilities in 2 directories.
+# 26 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
 %.o: %.c srcs/so_long.h libft mlx
-#  commands to execute (from `Makefile', line 39):
+#  commands to execute (from `Makefile', line 42):
 	${CC} -g -I libft ${CFLAGS} -c $< -o ${<:.c=.o}
 	
 
@@ -191,7 +191,7 @@ srcs/make_map.o: srcs/make_map.c srcs/so_long.h libft mlx
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/2=0%
-#  commands to execute (from `Makefile', line 39):
+#  commands to execute (from `Makefile', line 42):
 	${CC} -g -I libft ${CFLAGS} -c $< -o ${<:.c=.o}
 	
 
@@ -210,7 +210,7 @@ mlx:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 50):
+#  commands to execute (from `Makefile', line 53):
 	@make -C $(LIBDIR)
 	
 
@@ -250,7 +250,7 @@ libft:
 # ? := 
 # variable set hash-table stats:
 # Load=8/32=25%, Rehash=0, Collisions=1/10=10%
-#  commands to execute (from `Makefile', line 47):
+#  commands to execute (from `Makefile', line 50):
 	@make -C libft
 	
 
@@ -263,7 +263,7 @@ libft:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-17 20:46:10
+#  Last modified 2022-03-21 16:50:15
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -272,7 +272,7 @@ Makefile:
 # Not a target:
 srcs/make_map.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-17 20:10:45
+#  Last modified 2022-03-17 23:13:51
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -283,7 +283,7 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 58):
+#  commands to execute (from `Makefile', line 61):
 	@make fclean -C libft
 	@rm -fr ${NAME}
 	
@@ -323,7 +323,7 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 53):
+#  commands to execute (from `Makefile', line 56):
 	@make clean -C libft
 	@make clean -C $(LIBDIR)
 	@rm -fr ${OBJS}
@@ -339,7 +339,7 @@ srcs/check_map.o:
 # Not a target:
 srcs/so_long.h:
 #  Implicit rule search has been done.
-#  Last modified 2022-03-17 20:43:12
+#  Last modified 2022-03-17 20:46:36
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -352,8 +352,8 @@ so_long: srcs/make_map.o srcs/check_map_edge.o srcs/check_map.o srcs/read_map.o 
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/2=0%
-#  commands to execute (from `Makefile', line 42):
-	@${CC} ${CFLAGS} ${LINKS} libft/libft.a ${SRCS} srcs/main.c -o ${NAME}
+#  commands to execute (from `Makefile', line 45):
+	@${CC} ${CFLAGS} ${SRCS} srcs/main.c ${LINKS} libft/libft.a -o ${NAME}
 	
 
 # Not a target:
@@ -393,6 +393,6 @@ srcs/read_map.o:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Thu Mar 17 20:46:29 2022
+# Finished Make data base on Mon Mar 21 16:54:04 2022
 
  

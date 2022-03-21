@@ -6,11 +6,13 @@
 #    By: aball <aball@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/03 03:41:23 by aball             #+#    #+#              #
-#    Updated: 2022/03/17 20:50:38 by aball            ###   ########.fr        #
+#    Updated: 2022/03/21 16:50:15 by aball            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
+
+UNAME = ${shell uname}
 
 SRCS = srcs/make_map.c srcs/check_map_edge.c srcs/check_map.c srcs/read_map.c \
 	srcs/map_init.c srcs/my_strjoin.c srcs/so_long_utils.c \
@@ -20,9 +22,17 @@ OBJS = ${SRCS:c=o}
 
 CFLAGS = -Wall -Wextra -Werror
 
+ifeq ($(UNAME), Darwin)
 LINKS = -framework OpenGL -framework Appkit -L /Users/aball/Desktop/minilibx_opengl -lmlx
 
 LIBDIR = ../minilibx_opengl
+endif
+
+ifeq ($(UNAME), Linux)
+LINKS = -Lminilibx_linux -lmlx -lXext -lX11
+
+LIBDIR = ../minilibx_linux
+endif
 
 CC = gcc
 
@@ -32,7 +42,7 @@ INC = srcs/so_long.h
 	${CC} -g -I libft ${CFLAGS} -c $< -o ${<:.c=.o}
 
 $(NAME): ${OBJS}
-	@${CC} ${CFLAGS} ${LINKS} libft/libft.a ${SRCS} srcs/main.c -o ${NAME}
+	@${CC} ${CFLAGS} ${SRCS} srcs/main.c ${LINKS} libft/libft.a -o ${NAME}
 
 all: ${NAME}
 

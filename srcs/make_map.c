@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 04:39:28 by aball             #+#    #+#             */
-/*   Updated: 2022/03/17 20:10:45 by aball            ###   ########.fr       */
+/*   Updated: 2022/03/21 17:21:11 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static int	if_one(t_data *ptr, int x, int y)
 	return (32);
 }
 
+/*places exit tile and exit if player has collected all items*/
 static int	if_e(t_data *ptr, int x, int y)
 {
 	mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->sand, x, y);
@@ -42,9 +43,11 @@ static int	if_e(t_data *ptr, int x, int y)
 	return (32);
 }
 
-/*Removes collectable when players moves ontop of it*/
+/*places then removes collectable when players moves ontop of it*/
 static int	if_c(t_data *ptr, int x, int y, int i)
 {
+	mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->sand, x, y);
+	mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->chest, x, y);
 	if (ptr->x == x && ptr->y == y)
 	{
 		ptr->c--;
@@ -53,6 +56,7 @@ static int	if_c(t_data *ptr, int x, int y, int i)
 	return (32);
 }
 
+/*Places sand tiles*/
 static int	if_zero(t_data *ptr, int x, int y)
 {
 	mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->sand, x, y);
@@ -69,6 +73,7 @@ void	place_walls(t_data *ptr)
 	i = 0;
 	x = 0;
 	y = 0;
+	mlx_clear_window(ptr->mlx, ptr->win);
 	while (ptr->str[i])
 	{
 		if (ptr->str[i] == '1')
@@ -84,8 +89,6 @@ void	place_walls(t_data *ptr)
 			y += 32;
 			x = 0;
 		}
-		else
-			x += 32;
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 03:46:00 by aball             #+#    #+#             */
-/*   Updated: 2022/03/17 20:10:52 by aball            ###   ########.fr       */
+/*   Updated: 2022/03/21 17:17:12 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /*Places the player in the next position*/
 static void	place_player(t_data *ptr)
 {
+	mlx_clear_window(ptr->mlx, ptr->win);
 	mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->sand, ptr->x, ptr->y);
 	place_walls(ptr);
 	mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->boat, ptr->x, ptr->y);
@@ -27,17 +28,17 @@ static int	deal_key(int key, void *ptr)
 
 	save = ((t_data *)ptr)->i;
 	save_pos(ptr);
-	if (key == 53)
+	if (key == ESC_KEY)
 		escape_game(ptr);
-	if (key == 2)
+	if (key == RIGHT)
 		((t_data *)ptr)->x += 32;
-	if (key == 0)
+	if (key == LEFT)
 		((t_data *)ptr)->x -= 32;
-	if (key == 13)
+	if (key == UP)
 		((t_data *)ptr)->y -= 32;
-	if (key == 1)
+	if (key == DOWN)
 		((t_data *)ptr)->y += 32;
-	if ((key >= 0 && key <= 2) || key == 13)
+	if ((key >= LEFT && key <= RIGHT) || key == UP)
 	{
 		((t_data *)ptr)->i++;
 		place_player(ptr);

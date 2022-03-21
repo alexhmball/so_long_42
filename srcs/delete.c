@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 20:26:20 by aball             #+#    #+#             */
-/*   Updated: 2022/03/17 19:58:53 by aball            ###   ########.fr       */
+/*   Updated: 2022/03/17 21:50:21 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	d_image(t_data *ptr)
 {
-	// mlx_destroy_window(ptr->mlx, ptr->win);
 	mlx_destroy_image(ptr->mlx, ptr->boat);
 	mlx_destroy_image(ptr->mlx, ptr->chest);
 	mlx_destroy_image(ptr->mlx, ptr->sand);
