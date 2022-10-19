@@ -6,61 +6,63 @@
 #    By: aball <aball@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/03 03:41:23 by aball             #+#    #+#              #
-#    Updated: 2022/03/21 16:50:15 by aball            ###   ########.fr        #
+#    Updated: 2022/10/19 15:20:28 by aball            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-UNAME = ${shell uname}
+NAME_B = so_long_bonus
+
+ARC = ${shell uname}
 
 SRCS = srcs/make_map.c srcs/check_map_edge.c srcs/check_map.c srcs/read_map.c \
 	srcs/map_init.c srcs/my_strjoin.c srcs/so_long_utils.c \
-	srcs/get_next_line.c srcs/get_next_line_utils.c srcs/delete.c
+	srcs/get_next_line.c srcs/get_next_line_utils.c srcs/delete.c srcs/main.c
 
-OBJS = ${SRCS:c=o}
+SRCS_B = bonus/make_map_bonus.c bonus/check_map_edge_bonus.c bonus/check_map_bonus.c \
+	bonus/read_map_bonus.c bonus/map_init_bonus.c bonus/my_strjoin_bonus.c \
+	bonus/so_long_utils_bonus.c srcs/get_next_line.c srcs/get_next_line_utils.c \
+	bonus/delete_bonus.c bonus/main_bonus.c
 
 CFLAGS = -Wall -Wextra -Werror
 
-ifeq ($(UNAME), Darwin)
-LINKS = -framework OpenGL -framework Appkit -L /Users/aball/Desktop/minilibx_opengl -lmlx
+ifeq (${ARC}, Darwin)
+LINKS = -framework OpenGL -framework Appkit -L minilibx_opengl/ -lmlx
 
-LIBDIR = ../minilibx_opengl
+LIBDIR = minilibx_opengl/
 endif
 
-ifeq ($(UNAME), Linux)
-LINKS = -Lminilibx_linux -lmlx -lXext -lX11
+ifeq (${ARC}, Linux)
+LINKS = -L minilibx_linux/ -lmlx -lXext -lX11 -lm -lz
 
-LIBDIR = ../minilibx_linux
+LIBDIR = minilibx_linux/
 endif
 
 CC = gcc
 
-INC = srcs/so_long.h
-
-%.o: %.c ${INC} libft mlx
-	${CC} -g -I libft ${CFLAGS} -c $< -o ${<:.c=.o}
-
-$(NAME): ${OBJS}
-	@${CC} ${CFLAGS} ${SRCS} srcs/main.c ${LINKS} libft/libft.a -o ${NAME}
-
 all: ${NAME}
 
+$(NAME): libft mlx
+	${CC} ${CFLAGS} ${SRCS} libft/libft.a ${LINKS} -o ${NAME}
+
+bonus: libft mlx
+	${CC} ${CFLAGS} ${SRCS_B} ${LINKS} libft/libft.a -o ${NAME_B}
+
 libft:
-	@make -C libft
+	make -C libft
 
 mlx:
-	@make -C $(LIBDIR)
+	make -C $(LIBDIR)
 
 clean:
-	@make clean -C libft
-	@make clean -C $(LIBDIR)
-	@rm -fr ${OBJS}
+	make clean -C libft
+	make clean -C $(LIBDIR)
 
 fclean: clean
-	@make fclean -C libft
-	@rm -fr ${NAME}
+	make fclean -C libft
+	rm -fr ${NAME} ${NAME_B} ${LIB}
 
 re: fclean all
 
-.PHONY: re fclean clean all libft mlx
+.PHONY: re fclean clean all bonus libft mlx

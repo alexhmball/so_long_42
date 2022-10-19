@@ -6,17 +6,24 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 14:17:16 by aball             #+#    #+#             */
-/*   Updated: 2022/03/17 19:13:26 by aball            ###   ########.fr       */
+/*   Updated: 2022/03/28 18:02:05 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_BONUS_H
 # define SO_LONG_BONUS_H
 
-# include "../../../minilibx_opengl/mlx.h"
-# include "../../../minilibx_opengl/mlx_opengl.h"
-# include "../get_next_line.h"
-# include "../../libft/libft.h"
+# define ESC_KEY 53
+# define LEFT 0
+# define RIGHT 2
+# define UP 13
+# define DOWN 1
+# define WC 0xffffff
+
+# include "../../minilibx_opengl/mlx.h"
+# include "../../minilibx_opengl/mlx_opengl.h"
+# include "../srcs/get_next_line.h"
+# include "../libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
@@ -25,24 +32,26 @@
 
 typedef struct s_data
 {
-	void	*mlx;
-	void	*win;
-	void	*sand;
-	void	*water;
-	void	*boat;
-	void	*chest;
-	void	*exit;
-	int		c;
-	int		fd;
-	int		px;
-	int		py;
-	int		x;
-	int		y;
-	int		i;
-	int		mh;
-	int		mw;
-	char	*str;
-	char	*map_file;
+	void		*mlx;
+	void		*win;
+	void		*sand;
+	void		*water;
+	void		*chest;
+	void		*exit;
+	void		*p1;
+	void		*p2;
+	int			c;
+	int			fd;
+	int			px;
+	int			py;
+	int			x;
+	int			y;
+	int			i;
+	int			mh;
+	int			mw;
+	int			flag;
+	char		*str;
+	char		*map_file;
 }			t_data;
 
 void	place_tile(t_data *ptr);
@@ -59,8 +68,8 @@ void	check_map(t_data *ptr);
 void	save_pos(t_data *ptr);
 int		exit_prog(void *ptr);
 void	escape_game(t_data *ptr);
-char	*ft_strchr(const char *s, int c);
 char	*map_read(t_data *ptr);
 void	d_image(t_data *ptr);
+void	check_file_ext(t_data *ptr);
 
 #endif

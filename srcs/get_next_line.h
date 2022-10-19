@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/21 02:52:44 by aball             #+#    #+#             */
-/*   Updated: 2022/03/02 17:55:30 by aball            ###   ########.fr       */
+/*   Updated: 2022/04/04 00:03:19 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdio.h>
+# include "../libft/libft.h"
 
 char	*get_next_line(int fd);
 char	*gnl_strdup(char *src);

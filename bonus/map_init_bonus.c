@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_init.c                                         :+:      :+:    :+:   */
+/*   map_init_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 00:49:23 by aball             #+#    #+#             */
-/*   Updated: 2022/03/21 20:49:34 by aball            ###   ########.fr       */
+/*   Updated: 2022/03/28 18:01:41 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 static void	check_if(t_data *ptr, int i, int x, int y)
 {
@@ -30,7 +30,7 @@ static void	check_if(t_data *ptr, int i, int x, int y)
 		ptr->y = y;
 		ptr->px = x;
 		ptr->py = y;
-		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->player, x, y);
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->p2, x, y);
 	}
 }
 

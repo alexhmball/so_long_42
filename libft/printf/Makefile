@@ -6,7 +6,7 @@
 #    By: aball <aball@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/28 20:56:59 by aball             #+#    #+#              #
-#    Updated: 2022/01/30 00:12:51 by aball            ###   ########.fr        #
+#    Updated: 2022/04/03 17:02:52 by aball            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ RM = rm -f
 
 FLAGS = -Wall -Wextra -Werror
 
-.c.o:
+.c.o: ${SRCS}
 		${CC} -g ${FLAGS} -c $< -o ${<:c=o}
 
 $(NAME): ${OBJS}

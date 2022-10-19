@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   make_map.c                                         :+:      :+:    :+:   */
+/*   make_map_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 04:39:28 by aball             #+#    #+#             */
-/*   Updated: 2022/03/28 18:13:16 by aball            ###   ########.fr       */
+/*   Updated: 2022/03/22 22:33:10 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 /*Places walls and keeps player from going into them*/
 static int	if_one(t_data *ptr, int x, int y)
@@ -50,12 +50,13 @@ static int	if_e(t_data *ptr, int x, int y)
 static int	if_c(t_data *ptr, int x, int y, int i)
 {
 	mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->sand, x, y);
-	mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->chest, x, y);
 	if (ptr->x == x && ptr->y == y)
 	{
 		ptr->c--;
 		ptr->str[i] = '0';
 	}
+	else
+		mlx_put_image_to_window(ptr->mlx, ptr->win, ptr->chest, x, y);
 	return (32);
 }
 

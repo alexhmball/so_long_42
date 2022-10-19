@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map_edge.c                                   :+:      :+:    :+:   */
+/*   check_map_edge_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 19:36:33 by aball             #+#    #+#             */
-/*   Updated: 2022/04/08 01:29:13 by aball            ###   ########.fr       */
+/*   Updated: 2022/04/08 01:28:47 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "so_long_bonus.h"
 
 /*Checks the length of the lines are the same*/
 static void	check_line_len(t_data *ptr, char *str, int i)
@@ -49,9 +49,9 @@ static void	check_first_last(char *str, t_data *ptr)
 		if (str[i] != '1')
 		{
 			ft_printf("Error\nAn island needs to be surrounded by water.\n");
+			close(ptr->fd);
 			free (str);
-			close (ptr->fd);
-			exit (0);
+			exit (1);
 		}
 		i++;
 	}
