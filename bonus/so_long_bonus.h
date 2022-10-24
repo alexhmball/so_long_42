@@ -6,7 +6,7 @@
 /*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 14:17:16 by aball             #+#    #+#             */
-/*   Updated: 2022/03/28 18:02:05 by aball            ###   ########.fr       */
+/*   Updated: 2022/10/24 15:26:28 by aball            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # define DOWN 1
 # define WC 0xffffff
 
-# include "../../minilibx_opengl/mlx.h"
-# include "../../minilibx_opengl/mlx_opengl.h"
+# include "../minilibx_opengl/mlx.h"
+# include "../minilibx_opengl/mlx_opengl.h"
 # include "../srcs/get_next_line.h"
 # include "../libft/libft.h"
 # include <unistd.h>
