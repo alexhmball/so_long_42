@@ -3,21 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aball <aball@student.42.fr>                +#+  +:+       +#+        */
+/*   By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 14:17:16 by aball             #+#    #+#             */
-/*   Updated: 2022/10/19 15:23:32 by aball            ###   ########.fr       */
+/*   Updated: 2023/01/23 00:05:46 by ballzball        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+#ifdef MACOS
 # define ESC_KEY 53
 # define LEFT 0
 # define RIGHT 2
 # define UP 13
 # define DOWN 1
+#endif
+
+#ifdef LINUX
+# define ESC_KEY 65307
+# define LEFT 97
+# define RIGHT 100
+# define UP 119
+# define DOWN 115
+#endif
 
 # include "../minilibx_opengl/mlx.h"
 # include "../minilibx_opengl/mlx_opengl.h"

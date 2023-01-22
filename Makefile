@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aball <aball@student.42.fr>                +#+  +:+       +#+         #
+#    By: ballzball <ballzball@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/03 03:41:23 by aball             #+#    #+#              #
-#    Updated: 2022/10/19 15:20:28 by aball            ###   ########.fr        #
+#    Updated: 2023/01/23 00:06:56 by ballzball        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,11 +30,15 @@ CFLAGS = -Wall -Wextra -Werror
 ifeq (${ARC}, Darwin)
 LINKS = -framework OpenGL -framework Appkit -L minilibx_opengl/ -lmlx
 
+OS = MACOS
+
 LIBDIR = minilibx_opengl/
 endif
 
 ifeq (${ARC}, Linux)
 LINKS = -L minilibx_linux/ -lmlx -lXext -lX11 -lm -lz
+
+OS = LINUX
 
 LIBDIR = minilibx_linux/
 endif
@@ -44,10 +48,10 @@ CC = gcc
 all: ${NAME}
 
 $(NAME): libft mlx
-	${CC} ${CFLAGS} ${SRCS} libft/libft.a ${LINKS} -o ${NAME}
+	${CC} ${CFLAGS} ${SRCS} -D ${OS} libft/libft.a ${LINKS} -o ${NAME}
 
 bonus: libft mlx
-	${CC} ${CFLAGS} ${SRCS_B} ${LINKS} libft/libft.a -o ${NAME_B}
+	${CC} ${CFLAGS} ${SRCS_B} -D ${OS} ${LINKS} libft/libft.a -o ${NAME_B}
 
 libft:
 	make -C libft
